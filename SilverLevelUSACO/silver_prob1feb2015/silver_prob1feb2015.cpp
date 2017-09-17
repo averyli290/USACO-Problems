@@ -14,6 +14,8 @@ int main() {
 	string c = " ";
 	fin >> s >> c;
 	
+	cout << s << endl << endl;
+
 	vector<char> a;
 	vector<char> b;
 	for(int i = 0; i < s.length(); i++) {
@@ -23,22 +25,31 @@ int main() {
 	for(int i = 0; i < c.length(); i++) {
 		b.push_back(c[i]);
 	}
-	int i = 0;;
-	for(int i = 0; i < a.size()- c.length(); i++) {
+	int i = 0;
+	for(i = 0; i < a.size()- c.length(); i++) {
 		bool match = true;
 		for(int j = 0; j < c.length(); j++) {
 			if(s[i+j] != c[j]) {
+				cout << c[j];
 				match = false;
 			}
 		}
+		cout << endl;
 		if(match) {
-			a.erase(a.begin() + i - 2, a.begin() + c.length() + i);
+			for(int e = i; e < i + c.length(); e++) {
+				cout << a[e];
+			}
+			a.erase(a.begin() + i , a.begin() + c.length() + i);
+			for(int b = 0; b < a.size(); b++) {
+				cout << a[b];
+			}
+			cout << endl;
 			i = 0;
 		}
 	}
-
-	for(int i = 0; i < a.size(); i++) {
-		cout << a[i] << ", ";
+	string solution = "";
+	for(int b = 0; b < a.size(); b++) {
+		solution += a[b];
 	}
-	cout << endl;
+	cout << solution << endl;
 }
